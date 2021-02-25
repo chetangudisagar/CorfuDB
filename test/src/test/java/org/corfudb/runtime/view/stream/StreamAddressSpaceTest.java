@@ -148,7 +148,6 @@ public class StreamAddressSpaceTest {
 
     @Test
     public void testEquality() {
-        assertThat(new StreamAddressSpace().equals(null)).isFalse();
         assertThat(new StreamAddressSpace().equals(new StreamAddressSpace())).isTrue();
         assertThat(new StreamAddressSpace(2L, Collections.EMPTY_SET).equals(new StreamAddressSpace())).isFalse();
         assertThat(new StreamAddressSpace(2L, Collections.EMPTY_SET)

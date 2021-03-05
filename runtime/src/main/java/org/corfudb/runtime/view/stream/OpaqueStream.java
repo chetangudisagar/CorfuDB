@@ -16,13 +16,7 @@ public class OpaqueStream {
      */
     private final IStreamView streamView;
 
-    /**
-     * Necessary until the runtime is no longer necessary for deserialization.
-     */
-    private final CorfuRuntime runtime;
-
     public OpaqueStream(CorfuRuntime runtime, IStreamView streamView) {
-        this.runtime = runtime;
         this.streamView = streamView;
     }
 

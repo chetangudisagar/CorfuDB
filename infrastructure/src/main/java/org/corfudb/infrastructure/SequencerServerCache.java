@@ -88,7 +88,6 @@ public class SequencerServerCache {
      * @param cacheSize cache size
      */
     private final Optional<DistributionSummary> evictionsPerTrimCall;
-    private final Optional<Gauge> windowSize;
 
     public SequencerServerCache(int cacheSize, long maxConflictNewSequencer) {
         this.cacheSize = cacheSize;
@@ -111,10 +110,6 @@ public class SequencerServerCache {
                         .publishPercentileHistogram()
                         .baseUnit("eviction")
                         .register(registry));
-        windowSize = MeterRegistryProvider.getInstance().map(registry ->
-                Gauge.builder(windowSizeName,
-                        conflictKeys, HashMap::size).register(registry));
-
     }
 
     /**

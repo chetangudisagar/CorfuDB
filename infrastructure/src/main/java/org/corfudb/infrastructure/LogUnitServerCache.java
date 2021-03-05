@@ -42,11 +42,8 @@ public class LogUnitServerCache {
     private final int MAX_STREAM_THRESHOLD = 20;
 
     private final Optional<Timer> readTimer;
-    private final Optional<Gauge> loadTime;
     String loadTimeName = "logunit.cache.load_time";
-    private final Optional<Gauge> hitRatio;
     String hitRatioName = "logunit.cache.hit_ratio";
-    private final Optional<Gauge> weight;
     String weightName = "logunit.cache.weight";
 
     public LogUnitServerCache(LogUnitServerConfig config, StreamLog streamLog) {
@@ -61,17 +58,6 @@ public class LogUnitServerCache {
 
         MeterRegistryProvider.getInstance().ifPresent(registry ->
                 CaffeineCacheMetrics.monitor(registry, dataCache, "logunit.read_cache"));
-        hitRatio = MeterRegistryProvider.getInstance().map(registry ->
-                Gauge.builder(hitRatioName,
-                dataCache, cache -> cache.stats().hitRate()).register(registry));
-        loadTime = MeterRegistryProvider.getInstance().map(registry ->
-                Gauge.builder(loadTimeName,
-                        dataCache, cache -> cache.stats().totalLoadTime())
-                        .register(registry));
-        weight = MeterRegistryProvider.getInstance().map(registry ->
-                Gauge.builder(weightName,
-                        dataCache, cache -> cache.stats().evictionWeight())
-                        .register(registry));
 
         readTimer = MeterRegistryProvider.getInstance().map(registry ->
                 Timer.builder("logunit.read.timer").register(registry));

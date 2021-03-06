@@ -17,7 +17,6 @@ import org.corfudb.universe.node.Node.NodeParams;
 import org.corfudb.universe.node.server.vm.VmCorfuServer;
 import org.corfudb.universe.node.server.vm.VmCorfuServerParams;
 import org.corfudb.universe.node.server.vm.VmCorfuServerParams.VmName;
-import org.corfudb.universe.node.stress.vm.VmStress;
 import org.corfudb.universe.universe.vm.VmManager;
 import org.corfudb.universe.universe.vm.VmUniverseParams;
 

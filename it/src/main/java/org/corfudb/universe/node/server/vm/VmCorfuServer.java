@@ -11,7 +11,6 @@ import org.corfudb.universe.node.server.AbstractCorfuServer;
 import org.corfudb.universe.node.server.CorfuServer;
 import org.corfudb.universe.node.server.process.CorfuProcessManager;
 import org.corfudb.universe.node.server.process.CorfuServerPath;
-import org.corfudb.universe.node.stress.vm.VmStress;
 import org.corfudb.universe.universe.vm.VmManager;
 import org.corfudb.universe.universe.vm.VmUniverseParams;
 import org.corfudb.universe.util.IpAddress;

@@ -4,13 +4,10 @@ import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.LoadingCache;
 import com.github.benmanes.caffeine.cache.RemovalCause;
 import com.google.common.annotations.VisibleForTesting;
-import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.Meter;
 import io.micrometer.core.instrument.Tags;
 import io.micrometer.core.instrument.Timer;
 import io.micrometer.core.instrument.binder.cache.CaffeineCacheMetrics;
-import java.util.Optional;
-import java.util.function.Supplier;
 import lombok.extern.slf4j.Slf4j;
 import org.corfudb.common.metrics.micrometer.MeterRegistryProvider;
 import org.corfudb.common.util.Memory;
@@ -18,6 +15,9 @@ import org.corfudb.infrastructure.LogUnitServer.LogUnitServerConfig;
 import org.corfudb.infrastructure.log.StreamLog;
 import org.corfudb.protocols.wireprotocol.ILogData;
 import org.corfudb.protocols.wireprotocol.LogData;
+
+import java.util.Optional;
+import java.util.function.Supplier;
 
 import static java.lang.Math.toIntExact;
 

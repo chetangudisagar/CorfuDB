@@ -93,9 +93,6 @@ public class LogReplicationIT extends AbstractIT implements Observer {
 
     static private TestConfig testConfig = new TestConfig();
 
-    private Process sourceServer;
-    private Process destinationServer;
-
     // Connect with sourceServer to generate data
     private CorfuRuntime srcDataRuntime = null;
 
@@ -181,14 +178,14 @@ public class LogReplicationIT extends AbstractIT implements Observer {
      */
     private void setupEnv() throws IOException {
         // Source Corfu Server (data will be written to this server)
-        sourceServer = new CorfuServerRunner()
+        new CorfuServerRunner()
                 .setHost(DEFAULT_HOST)
                 .setPort(DEFAULT_PORT)
                 .setSingle(true)
                 .runServer();
 
         // Destination Corfu Server (data will be replicated into this server)
-        destinationServer = new CorfuServerRunner()
+        new CorfuServerRunner()
                 .setHost(DEFAULT_HOST)
                 .setPort(WRITER_PORT)
                 .setSingle(true)

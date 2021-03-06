@@ -3,7 +3,6 @@ package org.corfudb.runtime.view.stream;
 import org.corfudb.protocols.logprotocol.OpaqueEntry;
 import org.corfudb.protocols.wireprotocol.DataType;
 import org.corfudb.protocols.wireprotocol.ILogData;
-import org.corfudb.runtime.CorfuRuntime;
 import org.corfudb.runtime.exceptions.TrimmedException;
 
 import java.util.Collections;
@@ -16,7 +15,7 @@ public class OpaqueStream {
      */
     private final IStreamView streamView;
 
-    public OpaqueStream(CorfuRuntime runtime, IStreamView streamView) {
+    public OpaqueStream(IStreamView streamView) {
         this.streamView = streamView;
     }
 

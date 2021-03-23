@@ -1232,9 +1232,10 @@ public class LogReplicationIT extends AbstractIT implements Observer {
             } else if (waitCondition == WAIT.ON_METADATA_RESPONSE) {
                 metadataResponseObservable = sourceDataSender.getMetadataResponses();
                 metadataResponseObservable.addObserver(this);
-            }
-
-            if (waitCondition == WAIT.ON_METADATA_RESPONSE || waitCondition == WAIT.ON_SINK_RECEIVE) {
+                // Wait on Received Messages on Sink (Destination)
+                sinkReceivedMessages = sourceDataSender.getSinkManager().getRxMessageCount();
+                sinkReceivedMessages.addObserver(this);
+            } else if (waitCondition == WAIT.ON_SINK_RECEIVE) {
                 // Wait on Received Messages on Sink (Destination)
                 sinkReceivedMessages = sourceDataSender.getSinkManager().getRxMessageCount();
                 sinkReceivedMessages.addObserver(this);

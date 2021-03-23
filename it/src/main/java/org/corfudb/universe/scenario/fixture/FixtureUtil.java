@@ -83,9 +83,8 @@ public class FixtureUtil {
                     .index(i)
                     .build();
 
-            VmCorfuServerParams serverParam = null;
             try {
-                serverParam = ((VmCorfuServerParams) serverParamsBuilder
+                VmCorfuServerParams serverParam = ((VmCorfuServerParams) serverParamsBuilder
                         .vmName(vmName)
                         // Call the parent's builder methods using reflection as calling from
                         // the child builder object (serverParamsBuilder)
